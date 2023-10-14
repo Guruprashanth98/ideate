@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
-import { buttonVariants } from '.';
+import { buttonVariants } from '.'
+import { cn } from '@/lib/utils'
 
 interface Props {
   variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant']
@@ -9,6 +9,8 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
+  variant: 'default',
+  size: 'default',
   as: 'button',
 })
 </script>
