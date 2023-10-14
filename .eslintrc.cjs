@@ -5,31 +5,31 @@ module.exports = {
     node: true,
   },
   extends: [
-    "@nuxtjs/eslint-config-typescript",
-    "prettier",
-    "plugin:prettier/recommended",
+    '@nuxtjs/eslint-config-typescript',
+    'prettier',
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
-        parser: "@babel/eslint-parser",
-        sourceType: "module"
-      }
+        parser: '@babel/eslint-parser',
+        sourceType: 'module',
+      },
     },
   ],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    parser: "@typescript-eslint/parser",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    parser: '@typescript-eslint/parser',
     extraFileExtensions: ['.vue'],
   },
-  plugins: ["prettier", "vue"],
-  parser: "vue-eslint-parser",
+  plugins: ['prettier', 'vue'],
+  parser: 'vue-eslint-parser',
   rules: {
     'vue/multi-word-component-names': 'off',
   },
-};
+}
