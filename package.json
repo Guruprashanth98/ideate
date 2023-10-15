@@ -12,7 +12,8 @@
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:js && npm run lint:prettier",
     "lintfix": "prettier --write --list-different . && npm run lint:js --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "precommit:lint": "prettier --write --list-different . && npm run lint:js"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -51,6 +52,8 @@
     "typescript": "^5.0.0"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.+(js|json|ts|vue)": [
+      "npm run lintfix"
+    ]
   }
 }

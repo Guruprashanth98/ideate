@@ -1,11 +1,7 @@
 {
-  "*.ts": [
-    "prettier --write",
-    "eslint"
+  "*.(js|jsx|ts|tsx|vue)": [
+    "npm run precommit:lint"
   ],
-  "*.html": [
-    "eslint",
-    "prettier --write"
-  ],
-  "*.scss": "prettier --write"
+  "*.scss": "prettier --write",
+  "*.css": "prettier --write"
 }
