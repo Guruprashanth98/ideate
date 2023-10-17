@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/hanko'],
   components: [
     {
       path: '~/components/ui',
@@ -10,5 +10,20 @@ export default defineNuxtConfig({
       // prefix for your components, eg: UiButton
       prefix: 'Ui',
     },
+    {
+      path: '~/components/',
+      extensions: ['.vue'],
+      prefix: false,
+    },
   ],
+  hanko: {
+    apiURL: process.env.HANKO_API_URL,
+    cookieName: 'hanko',
+    redirects: {
+      login: '/login',
+      success: '/',
+      home: '/',
+      followRedirect: true,
+    },
+  },
 })

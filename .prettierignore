@@ -1,3 +1,4 @@
 .nuxt
 *.d.ts
 *.json
+.prettierrc
