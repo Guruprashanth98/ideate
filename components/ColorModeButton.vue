@@ -13,7 +13,7 @@ const isDark = computed({
 </script>
 
 <template>
-  <div class="cursor-pointer" @click="isDark = !isDark">
+  <div class="cursor-pointer select-none" @click="isDark = !isDark">
     <MoonIcon v-if="isDark" class="w-5 h-5" />
     <SunIcon v-else class="w-5 h-5" />
   </div>
