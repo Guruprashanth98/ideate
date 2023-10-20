@@ -14,12 +14,15 @@
     "lint:js:fix": "eslint --ext .ts,.vue --ignore-path .gitignore . --fix",
     "lintfix": "prettier --write --list-different . && npm run lint:js:fix",
     "prepare": "husky install",
-    "precommit:lint": "prettier --write --list-different . && npm run lint:js:fix"
+    "precommit:lint": "prettier --write --list-different . && npm run lint:js:fix",
+    "update-types": "npx supabase gen types typescript --linked > server/types/supabase.ts"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/hanko": "^0.4.0",
+    "@nuxtjs/supabase": "^1.1.2",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
@@ -36,6 +39,7 @@
     "nuxt": "^3.7.4",
     "nuxt-icon": "^0.5.0",
     "prettier": "^3.0.3",
+    "supabase": "^1.106.1",
     "typescript": "^5.2.2",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"

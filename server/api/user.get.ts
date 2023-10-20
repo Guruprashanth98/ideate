@@ -1,5 +1,5 @@
-export default defineEventHandler((_event) => {
+export default defineEventHandler(() => {
   return {
-    users: [],
+    user: 'user',
   }
 })

@@ -1,14 +1,7 @@
 import { H3Event } from 'h3'
 import { createRemoteJWKSet, jwtVerify } from 'jose'
-import { Error } from '../models/error.dto'
 import handleError from '../utils/handleError'
 import HankoConfig from '../utils/hankoConfig'
-
-const errorObject: Error = {
-  status: 401,
-  message: 'Unauthorized',
-  body: {},
-}
 
 export default defineEventHandler(async (event: H3Event) => {
   const serverSideRoutes = getRequestURL(event).pathname.startsWith('/api')
@@ -22,7 +15,8 @@ export default defineEventHandler(async (event: H3Event) => {
     // postman header
     // const postManJwt = getRequestHeader(event, 'Authorization')
     // jwt = postManJwt?.split(' ')[1]
-    if (!jwt) handleError(errorObject, event)
+
+    if (!jwt) handleError(401, event)
 
     // check valid JWT
     const JWKS = createRemoteJWKSet(
@@ -31,7 +25,7 @@ export default defineEventHandler(async (event: H3Event) => {
     try {
       await jwtVerify(jwt ?? '', JWKS)
     } catch {
-      if (serverSideRoutes) handleError(errorObject, event)
+      if (serverSideRoutes) handleError(401, event)
     }
   }
 

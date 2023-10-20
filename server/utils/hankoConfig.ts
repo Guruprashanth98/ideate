@@ -1,7 +1,7 @@
-import type { NitroRuntimeConfig } from 'nitropack'
+import { RuntimeConfig } from 'nuxt/schema'
 
 export default class HankoConfig {
-  runtimeConfig: NitroRuntimeConfig
+  runtimeConfig: RuntimeConfig
   hankoConfig: any
   constructor() {
     this.runtimeConfig = useRuntimeConfig()
