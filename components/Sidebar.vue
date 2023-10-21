@@ -1,25 +1,44 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils'
 
-// interface SidebarProps {
-//   playlists: Playlist[]
-// }
+interface Note {
+  id: number
+  content: string
+}
+const notes = [
+  {
+    id: 1,
+    content: 'Find max range',
+  },
+  {
+    id: 2,
+    content: 'rotate array',
+  },
+  {
+    id: 3,
+    content: 'Uber system design',
+  },
+  {
+    id: 4,
+    content: 'Websockets architecture',
+  },
+] as Note[]
+function findNote(id: Number): Note {
+  return notes.filter((note) => note.id === id)[0]
+}
+const { note: selectedNote, setNote } = useNote()
 
-const playlists = [
-  'Find max range',
-  'Merge two sorted arrays Merge two sorted arrays',
-  'Uber system design',
-  'DNS service',
-  'Top Artists',
-  'Logic Discography',
-  'Bedtime Beats',
-  'Feeling Happy',
-  'I miss Y2K Pop',
-  'Runtober',
-  'Mellow Days',
-  'Merge two sorted arrays Merge two sorted arraysMerge two sorted arrays Merge two sorted arraysMerge two sorted arrays Merge two sorted arraysMerge two sorted arrays Merge two sorted arrays',
-]
-// defineProps<SidebarProps>()
+const cachedNote = localStorage.getItem('selectedNote')
+
+function setSelectedNote(note: Note) {
+  setNote(note)
+  localStorage.setItem('selectedNote', note.id.toString())
+}
+if (cachedNote) {
+  setSelectedNote(findNote(parseInt(cachedNote)))
+} else {
+  setSelectedNote(notes[0])
+}
 </script>
 
 <template>
@@ -35,13 +54,18 @@ const playlists = [
           <UiScrollArea class="px-1 w-full">
             <div class="space-y-1 p-2 max-w-[15rem] overflow-hidden">
               <UiButton
-                v-for="(playlist, i) in playlists"
-                :key="`${playlist}-${i}`"
-                variant="ghost"
+                v-for="(note, i) in notes"
+                :key="`${note}-${i}`"
+                :variant="
+                  selectedNote && note.id === selectedNote?.id
+                    ? 'secondary'
+                    : 'ghost'
+                "
                 class="px-4 w-[14rem]"
+                @click="setSelectedNote(note)"
               >
                 <span class="truncate w-full text-left font-normal">{{
-                  playlist
+                  note.content
                 }}</span>
               </UiButton>
             </div>
