@@ -2,15 +2,6 @@
 definePageMeta({
   middleware: ['hanko-logged-out'],
 })
-async function signUp() {
-  const hanko = useHanko()
-  const user = await hanko?.user.getCurrent()
-  await useFetch('/api/user', {
-    method: 'post',
-    body: { email: user?.email },
-  })
-}
-/* eslint-disable vue/v-on-event-hyphenation */
 </script>
 
 <template>
@@ -76,7 +67,7 @@ async function signUp() {
         </div>
         <!-- <UserAuthForm /> -->
 
-        <hanko-auth @onAuthFlowCompleted="signUp()" />
+        <hanko-auth />
         <!-- <hanko-event  /> -->
         <p class="px-8 text-center text-sm text-muted-foreground">
           By clicking continue, you agree to our

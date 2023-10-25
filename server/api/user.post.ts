@@ -12,7 +12,7 @@ async function createUser(event: H3Event, _email: string) {
     return
   }
   return {
-    id: data,
+    user: data[0],
   }
 }
 
@@ -31,6 +31,8 @@ export default defineEventHandler(async (event: H3Event) => {
   if (data?.length === 0) return createUser(event, _email)
   else if (error) handleError(error.code, event, error)
   else {
-    // console.log(data, 'USER PRESENT - LOGIN FLOW')
+    return {
+      user: data[0],
+    }
   }
 })

@@ -1,0 +1,35 @@
+code {
+  box-shadow:
+    0 0 0 1px hsla(0, 0%, 100%, 0.3),
+    0 0 0 1.5px hsla(0, 0%, 100%, 0.3),
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12) !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  border-radius: 10px !important;
+  padding-top: 30px !important;
+  position: relative !important;
+}
+code::after {
+  content: '\2026' !important;
+  position: absolute !important;
+  width: 0 !important;
+  top: 0px !important;
+  left: 10px !important;
+  background-color: hsla(0, 0%, 100%, 0.2) !important;
+  font-size: 56px !important;
+  color: hsla(0, 0%, 100%, 0.2) !important;
+  line-height: 0.1;
+}
+pre {
+  background-image: linear-gradient(
+    140deg,
+    rgb(165, 142, 251),
+    rgb(233, 191, 248)
+  ) !important;
+  padding: 64px !important;
+  border-radius: 0 !important;
+}

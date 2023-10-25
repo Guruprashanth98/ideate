@@ -15,7 +15,7 @@
     "lintfix": "prettier --write --list-different . && npm run lint:js:fix",
     "prepare": "husky install",
     "precommit:lint": "prettier --write --list-different . && npm run lint:js:fix",
-    "update-types": "npx supabase gen types typescript --linked > server/types/supabase.ts"
+    "update-types": "npx supabase gen types typescript --linked > types/supabase.ts"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -23,7 +23,10 @@
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/hanko": "^0.4.0",
     "@nuxtjs/supabase": "^1.1.2",
+    "@tailwindcss/typography": "^0.5.10",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@types/markdown-it": "^13.0.4",
+    "@types/markdown-it-attrs": "^4.1.2",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
     "eslint": "^8.51.0",
@@ -45,13 +48,19 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@nuxt/content": "^2.8.5",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@radix-icons/vue": "^1.0.0",
+    "@types/markdown-it-highlightjs": "^3.3.3",
     "@vueuse/core": "^10.5.0",
+    "@vueuse/nuxt": "^10.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "jose": "^4.15.4",
     "lucide-vue-next": "^0.286.0",
+    "markdown-it": "^13.0.2",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-highlightjs": "^4.0.1",
     "radix-vue": "^0.4.1",
     "shadcn-vue": "latest",
     "tailwind-merge": "^1.14.0",

@@ -1,0 +1,29 @@
+<script lang="ts" setup>
+import hljs from 'highlight.js'
+import 'highlight.js/styles/github-dark.css'
+const props = defineProps({
+  block: {
+    type: Object,
+    required: true,
+  },
+})
+/* eslint-disable no-console */
+/* eslint-disable vue/no-v-html */
+onBeforeMount(() => {
+  if (!['content'].every((propName) => propName in props.block)) {
+    console.error(`RichText.vue has failed the block property validation`)
+  }
+})
+onMounted(() => {
+  hljs.highlightAll()
+})
+</script>
+
+<template>
+  <div class="">
+    <div
+      class="prose-xl prose-code:--code-linear-bg prose-headings:font-bold prose-blue prose-pre:bg-zinc-300 prose-pre:text-gray-800 text-sm m-5 p-5 bg-gray-100rounded-2xl dark:prose-invert"
+      v-html="$mdRenderer.render(block.content)"
+    ></div>
+  </div>
+</template>

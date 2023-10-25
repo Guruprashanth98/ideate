@@ -34,6 +34,40 @@ export interface Database {
   }
   public: {
     Tables: {
+      note: {
+        Row: {
+          content: string | null
+          created_at: string
+          id: number
+          title: string | null
+          updated_at: string | null
+          user_id: number
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          id?: number
+          title?: string | null
+          updated_at?: string | null
+          user_id: number
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          id?: number
+          title?: string | null
+          updated_at?: string | null
+          user_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'note_user_id_fkey'
+            columns: ['user_id']
+            referencedRelation: 'user'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       user: {
         Row: {
           created_at: string
@@ -57,7 +91,46 @@ export interface Database {
       }
     }
     Views: {
-      [_ in never]: never
+      decrypted_note: {
+        Row: {
+          content: string | null
+          created_at: string | null
+          decrypted_content: string | null
+          decrypted_title: string | null
+          id: number | null
+          title: string | null
+          updated_at: string | null
+          user_id: number | null
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string | null
+          decrypted_content?: never
+          decrypted_title?: never
+          id?: number | null
+          title?: string | null
+          updated_at?: string | null
+          user_id?: number | null
+        }
+        Update: {
+          content?: string | null
+          created_at?: string | null
+          decrypted_content?: never
+          decrypted_title?: never
+          id?: number | null
+          title?: string | null
+          updated_at?: string | null
+          user_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'note_user_id_fkey'
+            columns: ['user_id']
+            referencedRelation: 'user'
+            referencedColumns: ['id']
+          },
+        ]
+      }
     }
     Functions: {
       [_ in never]: never

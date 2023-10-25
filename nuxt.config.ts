@@ -7,7 +7,10 @@ export default defineNuxtConfig({
     '@nuxtjs/hanko',
     '@nuxtjs/supabase',
     '@nuxtjs/color-mode',
+    '@nuxt/content',
+    '@vueuse/nuxt',
   ],
+  css: ['~/assets/css/code-block.css', '~/assets/css/textarea.css'],
   components: [
     {
       path: '~/components/ui',
