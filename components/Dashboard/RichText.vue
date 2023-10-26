@@ -11,8 +11,14 @@ console.log(props.block.content)
 /* eslint-disable no-console */
 /* eslint-disable vue/no-v-html */
 onBeforeMount(() => {
-  if (!['content'].every((propName) => propName in props.block)) {
-    console.error(`RichText.vue has failed the block property validation`)
+  if (
+    !['content'].every(
+      (propName) => propName in props.block,
+    )
+  ) {
+    console.error(
+      `RichText.vue has failed the block property validation`,
+    )
   }
 })
 onMounted(() => {
@@ -23,7 +29,7 @@ onMounted(() => {
 <template>
   <div class="">
     <div
-      class="prose-xl prose-code:--code-linear-bg prose-headings:font-bold prose-blue prose-pre:bg-zinc-300 prose-pre:text-gray-800 text-sm sm:m-5 sm:p-5 bg-gray-100rounded-2xl dark:prose-invert"
+      class="prose-code:--code-linear-bg bg-gray-100rounded-2xl prose-xl prose-blue text-sm dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-300 prose-pre:text-gray-800 prose-ol:list-decimal prose-ul:list-disc sm:m-5 sm:p-5"
       v-html="$mdRenderer.render(block.content)"
     ></div>
   </div>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils'
 const { user } = useUser()
+const { updateNote } = useNotes()
 const { note } = useSelectedNote()
 const title = ref()
 const { focused } = useFocus(title)
@@ -34,6 +35,8 @@ onUpdated(() => {
   }
 })
 const saveNote = async () => {
+  updateNote(note.value)
+
   const { id } = user.value
   const body = {
     note: {
@@ -42,10 +45,13 @@ const saveNote = async () => {
     },
     user_id: id,
   }
-  const { error } = await useFetch('/api/updateNote', {
-    method: 'POST',
-    body,
-  })
+  const { error } = await useFetch(
+    '/api/updateNote',
+    {
+      method: 'POST',
+      body,
+    },
+  )
   /* eslint-disable no-console */
   if (error) console.log(error)
 }
@@ -57,7 +63,7 @@ const saveNote = async () => {
     v-model="note.title"
     :class="
       cn(
-        'auto-resize h-[35px] bg-background overflow-hidden scroll-m-20 mb-4 mt-2 focus:ring-0 focus:ring-offset-0 text-2xl leading-normal font-semibold tracking-tight border-none focus-visible:ring-transparent focus-visible:ring-offset-0 px-0 sm:px-4 focus-visible:outline-none w-full resize-none',
+        'auto-resize mb-4 mt-2 h-[35px] w-full resize-none scroll-m-20 overflow-hidden border-none bg-background px-0 text-2xl font-semibold leading-normal tracking-tight focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 sm:px-4',
         $attrs.editable ?? '',
       )
     "

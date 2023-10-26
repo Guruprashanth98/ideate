@@ -31,5 +31,11 @@ module.exports = {
   parser: 'vue-eslint-parser',
   rules: {
     'vue/multi-word-component-names': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 }
