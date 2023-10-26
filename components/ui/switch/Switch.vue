@@ -7,7 +7,9 @@ import {
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<SwitchRootProps & { class?: string }>()
+const props = defineProps<
+  SwitchRootProps & { class?: string }
+>()
 
 const emits = defineEmits<SwitchRootEmits>()
 </script>
@@ -21,7 +23,9 @@ const emits = defineEmits<SwitchRootEmits>()
         props.class,
       )
     "
-    @update:checked="emits('update:checked', $event)"
+    @update:checked="
+      emits('update:checked', $event)
+    "
   >
     <SwitchThumb
       :class="

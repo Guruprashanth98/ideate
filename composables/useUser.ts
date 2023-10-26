@@ -5,7 +5,10 @@ export const useUser = () => {
     id: null,
   }
 
-  const user = useState<User>('user', () => initUser)
+  const user = useState<User>(
+    'user',
+    () => initUser,
+  )
 
   function setUser(payload: User) {
     user.value = payload

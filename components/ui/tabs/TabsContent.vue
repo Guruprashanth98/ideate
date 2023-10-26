@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { TabsContent, type TabsContentProps } from 'radix-vue'
+import {
+  TabsContent,
+  type TabsContentProps,
+} from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<TabsContentProps & { class?: string }>()
+const props = defineProps<
+  TabsContentProps & { class?: string }
+>()
 </script>
 
 <template>

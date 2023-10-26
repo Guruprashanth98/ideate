@@ -5,7 +5,8 @@ export default class HankoConfig {
   hankoConfig: any
   constructor() {
     this.runtimeConfig = useRuntimeConfig()
-    this.hankoConfig = this.runtimeConfig.public.hanko
+    this.hankoConfig =
+      this.runtimeConfig.public.hanko
   }
 
   getHankoUrl() {

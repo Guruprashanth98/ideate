@@ -7,4 +7,7 @@ const {
   },
 } = useRuntimeConfig()
 
-export const supabase = createClient<Database>(url, key)
+export const supabase = createClient<Database>(
+  url,
+  key,
+)

@@ -3,7 +3,10 @@ import { Note, User } from '~/types/collections'
 export const useSaveNote = async (
   user: User,
   selectedNote: Note,
-): Promise<{ insertedNote: Note | null; insertError: Error }> => {
+): Promise<{
+  insertedNote: Note | null
+  insertError: Error
+}> => {
   const { id } = user
   let insertedNote: Note | null = null
   let insertError = null

@@ -13,7 +13,10 @@ export const useSelectedNote = () => {
     content: '',
   }
 
-  const note = useState<Note>('note', () => initNote as Note)
+  const note = useState<Note>(
+    'note',
+    () => initNote as Note,
+  )
   const setNote = (payload: Note) => {
     note.value = payload
     console.log(note.value)

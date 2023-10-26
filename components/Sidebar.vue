@@ -5,7 +5,8 @@ import { Note, User } from '@/types/collections'
 
 const { notes: notesRef, addNote } = useNotes()
 const { user } = useUser()
-const { note: selectedNote, setNote } = useSelectedNote()
+const { note: selectedNote, setNote } =
+  useSelectedNote()
 const { setView } = useView()
 
 async function addNewNote() {
@@ -13,10 +14,11 @@ async function addNewNote() {
     title: 'Untitled',
     content: '',
   }
-  const { insertedNote, insertError } = await useSaveNote(
-    user.value as User,
-    newNote as Note,
-  )
+  const { insertedNote, insertError } =
+    await useSaveNote(
+      user.value as User,
+      newNote as Note,
+    )
   if (insertedNote) {
     insertedNote.title = newNote.title
     insertedNote.content = newNote.content
@@ -33,38 +35,47 @@ async function addNewNote() {
   <div
     :class="
       cn(
-        'pb-12 min-w-[240px] max-w-[350px]  hidden lg:block',
+        'hidden min-w-[240px] max-w-[350px]  pb-12 lg:block',
         $attrs.class ?? '',
       )
     "
   >
-    <div class="space-y-4 py-4 min-h-full">
-      <div class="pr-4 py-2 w-full">
-        <div class="py-2 w-full">
+    <div class="min-h-full space-y-4 py-4">
+      <div class="w-full py-2 pr-4">
+        <div class="w-full py-2">
           <div
-            class="mb-2 py-3 pl-2 ml-2 flex justify-between items-center w-[90%] border-b"
+            class="mb-2 ml-2 flex w-[90%] items-center justify-between border-b py-3 pl-2"
           >
-            <h1 class="text-xl font-semibold tracking-tight cursor-default">
+            <h1
+              class="cursor-default text-xl font-semibold tracking-tight"
+            >
               Notes
             </h1>
-            <PenSquare class="w-5 h-5 cursor-pointer" @click="addNewNote()" />
+            <PenSquare
+              class="h-5 w-5 cursor-pointer"
+              @click="addNewNote()"
+            />
           </div>
           <UiScrollArea class="w-full">
-            <div class="space-y-1 py-2 max-w-[15rem] overflow-hidden">
+            <div
+              class="max-w-[15rem] space-y-1 overflow-hidden py-2"
+            >
               <UiButton
                 v-for="(note, i) in notesRef"
                 :key="`${note}-${i}`"
                 :variant="
-                  selectedNote && note.id === selectedNote?.id
+                  selectedNote &&
+                  note.id === selectedNote?.id
                     ? 'secondary'
                     : 'ghost'
                 "
                 :class="`w-[13rem] note-${note.id}`"
                 @click="setNote(note)"
               >
-                <span class="truncate w-full text-left font-normal">{{
-                  note.title
-                }}</span>
+                <span
+                  class="w-full truncate text-left font-normal"
+                  >{{ note.title }}</span
+                >
               </UiButton>
             </div>
           </UiScrollArea>

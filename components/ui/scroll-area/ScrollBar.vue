@@ -6,9 +6,12 @@ import {
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
-  orientation: 'vertical',
-})
+const props = withDefaults(
+  defineProps<ScrollAreaScrollbarProps>(),
+  {
+    orientation: 'vertical',
+  },
+)
 </script>
 
 <template>
@@ -25,6 +28,8 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
       )
     "
   >
-    <ScrollAreaThumb class="relative flex-1 rounded-full bg-border" />
+    <ScrollAreaThumb
+      class="relative flex-1 rounded-full bg-border"
+    />
   </ScrollAreaScrollbar>
 </template>

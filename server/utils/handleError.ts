@@ -1,4 +1,8 @@
-import { H3Event, createError, sendError } from 'h3'
+import {
+  H3Event,
+  createError,
+  sendError,
+} from 'h3'
 
 type CustomError = {
   statusCode: number

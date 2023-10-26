@@ -24,11 +24,14 @@ if (user?.email) {
   })
   if (pending) await refresh()
   if (userResponse.value) {
-    const { id, email } = toRaw(userResponse.value.user)
+    const { id, email } = toRaw(
+      userResponse.value.user,
+    )
     setUser({ id, email })
   }
   /* eslint-disable no-console */
-  if (userError.value) console.log(userError.value)
+  if (userError.value)
+    console.log(userError.value)
 }
 
 try {

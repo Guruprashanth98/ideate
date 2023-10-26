@@ -6,6 +6,9 @@ export const useView = () => {
   function setView(modelValue: View) {
     view.value = modelValue
   }
-  const view = useState<View>('view', () => initView)
+  const view = useState<View>(
+    'view',
+    () => initView,
+  )
   return { view, setView }
 }

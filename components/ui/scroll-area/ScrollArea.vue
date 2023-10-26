@@ -9,7 +9,9 @@ import ScrollBar from './ScrollBar.vue'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(
-  defineProps<ScrollAreaRootProps & { class?: string }>(),
+  defineProps<
+    ScrollAreaRootProps & { class?: string }
+  >(),
   {
     class: '',
     orientation: 'vertical',
@@ -20,9 +22,13 @@ const props = withDefaults(
 <template>
   <ScrollAreaRoot
     :type="type"
-    :class="cn('relative overflow-hidden', props.class)"
+    :class="
+      cn('relative overflow-hidden', props.class)
+    "
   >
-    <ScrollAreaViewport class="h-full w-full rounded-[inherit]">
+    <ScrollAreaViewport
+      class="h-full w-full rounded-[inherit]"
+    >
       <slot />
     </ScrollAreaViewport>
     <ScrollBar />

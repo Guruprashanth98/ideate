@@ -29,7 +29,7 @@ onMounted(() => {
 <template>
   <div class="">
     <div
-      class="prose-code:--code-linear-bg bg-gray-100rounded-2xl prose-xl prose-blue text-sm dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-300 prose-pre:text-gray-800 prose-ol:list-decimal prose-ul:list-disc sm:m-5 sm:p-5"
+      class="prose-code:--code-linear-bg bg-gray-100rounded-2xl prose-headings:font-sans prose-lg prose-blue text-sm dark:prose-invert prose-headings:text-4xl prose-headings:font-bold prose-headings:tracking-tight prose-pre:bg-zinc-300 prose-pre:text-gray-800 prose-ol:list-decimal prose-ul:list-disc sm:m-0 sm:p-5 sm:px-10"
       v-html="$mdRenderer.render(block.content)"
     ></div>
   </div>

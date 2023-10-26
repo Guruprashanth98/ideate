@@ -9,8 +9,12 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/content',
     '@vueuse/nuxt',
+    '@nuxtjs/google-fonts',
   ],
-  css: ['~/assets/css/code-block.css', '~/assets/css/textarea.css'],
+  css: [
+    '~/assets/css/code-block.css',
+    '~/assets/css/textarea.css',
+  ],
   components: [
     {
       path: '~/components/ui',
@@ -43,12 +47,21 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/png', href: '/ideate-logo-light-thin.png' },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/ideate-logo-light-thin.png',
+        },
       ],
     },
   },
   colorMode: {
     preference: 'light',
     classSuffix: '',
+  },
+  googleFonts: {
+    families: {
+      Inter: [400, 500, 600, 700, 800, 900],
+    },
   },
 })

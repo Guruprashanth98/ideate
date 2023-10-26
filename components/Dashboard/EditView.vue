@@ -1,9 +1,11 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="grid grid-cols-2 min-h-[calc(100vh-200px)]">
+  <div
+    class="grid min-h-[calc(100vh-200px)] grid-cols-2"
+  >
     <DashboardEditor />
     <DashboardReader
-      class="hidden sm:block col-span-1 rounded-md border border-input ml-4"
+      class="col-span-1 ml-4 hidden rounded-md border border-input sm:block"
     />
   </div>
 </template>

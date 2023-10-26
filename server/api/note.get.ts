@@ -1,7 +1,9 @@
 import { H3Event } from 'h3'
 import { Note } from '~/types/collections'
 export default defineEventHandler(
-  async (event: H3Event): Promise<Array<Note> | undefined> => {
+  async (
+    event: H3Event,
+  ): Promise<Array<Note> | undefined> => {
     const { user_id: userId } = getQuery(event)
     if (!userId) {
       handleError(400, event)

@@ -3,14 +3,19 @@ import { Note } from '@/types/collections'
 export const useNotes = () => {
   // State to manage current selected note
 
-  const notes: Ref<Note[]> = useState<Note[]>('notes', () => [])
+  const notes: Ref<Note[]> = useState<Note[]>(
+    'notes',
+    () => [],
+  )
 
   const addNote = (payload: Note) => {
     notes.value = [...notes.value, payload]
   }
 
   const deleteNote = (payload: Note) => {
-    notes.value = notes.value.filter((note: Note) => note.id !== payload.id)
+    notes.value = notes.value.filter(
+      (note: Note) => note.id !== payload.id,
+    )
   }
 
   const setNotes = (payload: Note[]) => {
@@ -27,5 +32,11 @@ export const useNotes = () => {
     })
   }
 
-  return { notes, setNotes, addNote, deleteNote, updateNote }
+  return {
+    notes,
+    setNotes,
+    addNote,
+    deleteNote,
+    updateNote,
+  }
 }

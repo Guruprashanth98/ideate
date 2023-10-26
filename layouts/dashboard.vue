@@ -3,10 +3,10 @@
     <Header></Header>
     <main>
       <div
-        class="2xl:container flex justify-start min-h-[calc(100vh-56px)] pr-4"
+        class="flex min-h-[calc(100vh-56px)] justify-start pr-4 2xl:container"
       >
         <ClientOnly><Sidebar /></ClientOnly>
-        <div class="border-l w-full pl-5 py-5">
+        <div class="w-full border-l py-5 pl-5">
           <slot />
         </div>
       </div>
