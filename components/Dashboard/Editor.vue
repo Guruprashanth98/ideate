@@ -26,12 +26,12 @@ const updateNote = (event: Event) => {
 }
 </script>
 <template>
-  <div class="col-span-1 rounded-md border border-transparent">
+  <div class="col-span-2 sm:col-span-1 rounded-md border border-transparent">
     <DashboardTitle :editable="true" class="border-b"></DashboardTitle>
-    <div class="px-4">
+    <div class="px-0 sm:px-4">
       <UiTextarea
         :value="note.content"
-        class="min-h-[200px] md:min-h-[700px] lg:min-h-[200px] focus-visible:ring-transparent focus-visible:ring-offset-0"
+        class="min-h-[80vh] sm:min-h-[200px] md:min-h-[700px] lg:min-h-[200px] focus-visible:ring-transparent focus-visible:ring-offset-0"
         placeholder="Notes...(Markdown is enabled)"
         @input="(event: Event) => updateNote(event)"
         @change="saveNote"

@@ -49,5 +49,7 @@ try {
 </script>
 
 <template>
-  <Dashboard />
+  <NuxtLayout name="dashboard">
+    <Dashboard />
+  </NuxtLayout>
 </template>

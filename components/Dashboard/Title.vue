@@ -57,7 +57,7 @@ const saveNote = async () => {
     v-model="note.title"
     :class="
       cn(
-        'auto-resize h-[35px] bg-background overflow-hidden scroll-m-20 mb-4 mt-2 focus:ring-0 focus:ring-offset-0 text-2xl leading-normal font-semibold tracking-tight border-none focus-visible:ring-transparent focus-visible:ring-offset-0 px-4 focus-visible:outline-none w-full resize-none',
+        'auto-resize h-[35px] bg-background overflow-hidden scroll-m-20 mb-4 mt-2 focus:ring-0 focus:ring-offset-0 text-2xl leading-normal font-semibold tracking-tight border-none focus-visible:ring-transparent focus-visible:ring-offset-0 px-0 sm:px-4 focus-visible:outline-none w-full resize-none',
         $attrs.editable ?? '',
       )
     "

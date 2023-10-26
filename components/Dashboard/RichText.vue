@@ -22,7 +22,7 @@ onMounted(() => {
 <template>
   <div class="">
     <div
-      class="prose-xl prose-code:--code-linear-bg prose-headings:font-bold prose-blue prose-pre:bg-zinc-300 prose-pre:text-gray-800 text-sm m-5 p-5 bg-gray-100rounded-2xl dark:prose-invert"
+      class="prose-xl prose-code:--code-linear-bg prose-headings:font-bold prose-blue prose-pre:bg-zinc-300 prose-pre:text-gray-800 text-sm sm:m-5 sm:p-5 bg-gray-100rounded-2xl dark:prose-invert"
       v-html="$mdRenderer.render(block.content)"
     ></div>
   </div>

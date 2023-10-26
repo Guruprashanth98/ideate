@@ -7,9 +7,9 @@ import { GithubLogoIcon } from '@radix-icons/vue'
       class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border"
     >
       <div
-        class="container flex justify-between h-14 items-center w-full px-10"
+        class="sm:container flex justify-between h-14 items-center w-full px-5 sm:px-10"
       >
-        <div class="mr-4 hidden md:flex">
+        <div class="mr-4 flex">
           <a href="/" class="mr-6 flex items-center space-x-2">
             <span class="m-0 font-bold text-lg text-foreground">Ideate</span>
           </a>
