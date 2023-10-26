@@ -15,13 +15,14 @@ const saveNote = async () => {
     body,
   })
   /* eslint-disable no-console */
-  if (error) console.log(error)
+  if (error) console.log(error.value)
 }
 const updateNote = (event: Event) => {
   const _note = {
     ...note.value,
     content: (event.target as HTMLInputElement).value,
   }
+  console.log(_note, '_note')
   setNote(_note)
 }
 </script>

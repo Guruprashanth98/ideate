@@ -7,6 +7,7 @@ const props = defineProps({
     required: true,
   },
 })
+console.log(props.block.content)
 /* eslint-disable no-console */
 /* eslint-disable vue/no-v-html */
 onBeforeMount(() => {

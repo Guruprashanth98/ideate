@@ -11,6 +11,6 @@ const { note } = useSelectedNote()
     }"
   >
     <DashboardTitle :editable="false" class="bg-transparent"></DashboardTitle>
-    <DashboardRichText :block="note" />
+    <DashboardRichText v-if="note.content?.length !== 0" :block="note" />
   </div>
 </template>
