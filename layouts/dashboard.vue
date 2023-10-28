@@ -9,7 +9,7 @@
       >
         <ClientOnly><Sidebar /></ClientOnly>
         <div
-          class="h-[1px] w-full pl-5 pt-5 min-h-[inherit]"
+          class="w-full pl-5 pt-5 min-h-[inherit]"
         >
           <slot />
         </div>
