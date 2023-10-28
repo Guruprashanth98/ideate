@@ -4,7 +4,7 @@ import { GithubLogoIcon } from '@radix-icons/vue'
 <template>
   <div>
     <header
-      class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-lg"
+      class="fixed top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur-lg"
     >
       <div
         class="flex h-14 w-full items-center justify-between px-5 sm:container sm:px-10"

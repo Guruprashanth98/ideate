@@ -35,7 +35,7 @@ async function addNewNote() {
   <div
     :class="
       cn(
-        'hidden min-w-[240px] max-w-[350px]  pb-12 lg:block',
+        'sticky hidden h-[calc(100vh-57px)] min-w-[240px] max-w-[350px] border-r pb-12 lg:block top-0',
         $attrs.class ?? '',
       )
     "

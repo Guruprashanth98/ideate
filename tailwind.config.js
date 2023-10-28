@@ -80,9 +80,13 @@ module.exports = {
         'accordion-up':
           'accordion-up 0.2s ease-out',
       },
+      backdropFilter: {
+        'blur-5': 'blur(5px)',
+      },
     },
     fontFamily: {
       mono: ['ui-monospace', 'SFMono-Regular'],
+      sans: ['ui-sans-serif', 'sans-serif'],
     },
   },
   plugins: [

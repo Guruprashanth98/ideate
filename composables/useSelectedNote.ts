@@ -19,7 +19,6 @@ export const useSelectedNote = () => {
   )
   const setNote = (payload: Note) => {
     note.value = payload
-    console.log(note.value)
   }
 
   return { note, setNote }

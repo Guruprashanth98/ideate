@@ -7,7 +7,6 @@ const props = defineProps({
     required: true,
   },
 })
-console.log(props.block.content)
 /* eslint-disable no-console */
 /* eslint-disable vue/no-v-html */
 onBeforeMount(() => {
@@ -27,10 +26,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="">
-    <div
-      class="prose-code:--code-linear-bg bg-gray-100rounded-2xl prose-headings:font-sans prose-lg prose-blue text-sm dark:prose-invert prose-headings:text-4xl prose-headings:font-bold prose-headings:tracking-tight prose-pre:bg-zinc-300 prose-pre:text-gray-800 prose-ol:list-decimal prose-ul:list-disc sm:m-0 sm:p-5 sm:px-10"
-      v-html="$mdRenderer.render(block.content)"
-    ></div>
-  </div>
+  <div
+    class="prose-code:text-sm prose-code:--code-linear-bg prose-lg prose-blue h-full !pt-24 text-sm dark:prose-invert prose-headings:font-sans prose-code:font-inter prose-headings:text-4xl prose-headings:font-bold prose-headings:tracking-tight prose-pre:bg-zinc-300 prose-pre:text-gray-800 prose-ol:list-decimal prose-ul:list-disc sm:m-0 sm:p-5 sm:px-10 prose-p:text-[16px] prose-li:text-base prose-li:leading-4 prose-p:leading-6"
+    v-html="$mdRenderer.render(block.content)"
+  ></div>
 </template>

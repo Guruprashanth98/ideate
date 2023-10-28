@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/code-block.css',
     '~/assets/css/textarea.css',
+    '~/assets/css/global.css',
   ],
   components: [
     {

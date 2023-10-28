@@ -1,4 +1,4 @@
-import { View } from '~/types/types'
+import { View } from '@/types/view'
 
 export const useView = () => {
   const initView = 'reader'

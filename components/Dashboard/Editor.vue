@@ -3,6 +3,19 @@ const { user } = useUser()
 const { updateNote: updateStoreNotes } =
   useNotes()
 const { note, setNote } = useSelectedNote()
+const editorRef = ref()
+let textArea: HTMLTextAreaElement | null = null
+onMounted(() => {
+  textArea = editorRef.value.textAreaRef
+})
+function onResize({
+  height,
+}: {
+  height: number
+}) {
+  if (textArea)
+    textArea.style.paddingTop = `${height + 60}px`
+}
 const saveNote = async () => {
   updateStoreNotes(note.value)
   const { id } = user.value
@@ -63,20 +76,32 @@ const enterPress = (e: any) => {
     newlineIndent,
   )
 }
+const changeFocus = (e: any) => {
+  if (textArea) {
+    e.preventDefault()
+    console.log('enter')
+    textArea.setSelectionRange(0, 0)
+    textArea.focus()
+  }
+}
 </script>
 <template>
   <div
-    class="col-span-2 rounded-md border border-transparent sm:col-span-1"
+    class="relative col-span-2 flex h-[90vh] resize-y flex-col rounded-md border sm:col-span-1"
   >
     <DashboardTitle
       :editable="true"
-      class="border-b"
+      :on-resize="onResize"
+      class="absolute left-0 top-0 !mt-0 w-[calc(100%-6px)] bg-transparent !pt-5 backdrop-blur-sm first-line:border-b"
+      @keydown.enter="changeFocus"
     ></DashboardTitle>
-    <div class="px-0 sm:px-4">
+    <div class="h-full px-0 sm:pl-4">
       <UiTextarea
+        ref="editorRef"
         :value="note.content"
-        class="min-h-[80vh] focus-visible:ring-transparent focus-visible:ring-offset-0 sm:min-h-[200px] md:min-h-[700px] lg:min-h-[200px]"
+        class="h-full cursor-auto resize-none border-none focus-visible:ring-transparent focus-visible:ring-offset-0 pb-10 leading-6"
         placeholder="Notes...(Markdown is enabled)"
+        spellcheck="false"
         @input="
           (event: Event) => updateNote(event)
         "

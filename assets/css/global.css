@@ -1,0 +1,24 @@
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--lightestgrey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  cursor: default;
+}
+body {
+  overflow: hidden;
+}
