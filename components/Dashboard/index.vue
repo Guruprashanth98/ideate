@@ -3,6 +3,7 @@ const { view } = useView()
 </script>
 <template>
   <div
+    v-auto-animate
     :class="{
       relative: true,
       // 'right-[5px]': view === 'editor',

@@ -5,8 +5,15 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs'
 import { View } from '@/types/view'
+const { setSidebarExpanded } = useSidebarState()
 const { view, setView } = useView()
 function tabUpdate(modelValue: View) {
+  if (modelValue === 'editor') {
+    setSidebarExpanded(false)
+  }
+  if (modelValue === 'reader') {
+    setSidebarExpanded(true)
+  }
   setView(modelValue)
 }
 </script>

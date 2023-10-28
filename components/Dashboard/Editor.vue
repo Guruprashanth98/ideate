@@ -91,7 +91,7 @@ const changeFocus = (e: any) => {
     <DashboardTitle
       :editable="true"
       :on-resize="onResize"
-      class="absolute left-0 top-0 !mt-0 w-[calc(100%-6px)] bg-transparent !pt-5 backdrop-blur-sm first-line:border-b"
+      class="absolute left-0 top-0 !mt-0 w-[calc(100%-25px)] bg-transparent !pt-5 backdrop-blur-sm first-line:border-b"
       @keydown.enter="changeFocus"
     ></DashboardTitle>
     <div class="h-full px-0 sm:pl-4">

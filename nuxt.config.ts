@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
+    '@formkit/auto-animate/nuxt',
   ],
   css: [
     '~/assets/css/code-block.css',
@@ -64,5 +65,8 @@ export default defineNuxtConfig({
     families: {
       Inter: [400, 500, 600, 700, 800, 900],
     },
+  },
+  experimental: {
+    viewTransition: true,
   },
 })
