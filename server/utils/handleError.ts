@@ -25,7 +25,7 @@ export default function handleError(
   } else {
     error = createError({
       statusCode: err?.statusCode,
-      statusMessage: err.message,
+      statusMessage: err?.message,
       data: err.body,
     })
     sendError(event, error, false)

@@ -47,7 +47,7 @@ try {
   setNote(toRaw(data[0]))
 } catch (error: any) {
   /* eslint-disable no-console */
-  console.log(error.value)
+  console.log(error)
 }
 </script>
 

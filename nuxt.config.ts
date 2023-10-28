@@ -52,7 +52,7 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/png',
-          href: '/ideate-logo-light-thin.png',
+          href: '~/public/ideate-logo-light-thin.png',
         },
       ],
     },
