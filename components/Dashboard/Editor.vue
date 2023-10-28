@@ -79,7 +79,6 @@ const enterPress = (e: any) => {
 const changeFocus = (e: any) => {
   if (textArea) {
     e.preventDefault()
-    console.log('enter')
     textArea.setSelectionRange(0, 0)
     textArea.focus()
   }

@@ -104,7 +104,7 @@ const updateNoteTitle = (e: any) => {
     spellcheck="false"
     :class="
       cn(
-        'auto-resize mb-4 mt-5 h-[35px] resize-none scroll-m-20 overflow-hidden border-none  bg-background  text-4xl font-bold leading-normal tracking-tighter focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 sm:px-10',
+        'auto-resize mb-4 mt-5 h-[35px] resize-none scroll-m-20 overflow-hidden border-none  bg-background  text-4xl font-bold leading-normal tracking-tighter focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 px-3 sm:px-5',
         $attrs.editable ?? '',
       )
     "
