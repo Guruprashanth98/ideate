@@ -20,28 +20,30 @@ function tabUpdate(modelValue: View) {
 </script>
 
 <template>
-  <Tabs
-    :default-value="view"
-    :model-value="view"
-    @update:model-value="
-      (modelValue) =>
-        tabUpdate(modelValue as View)
-    "
-  >
-    <TabsList class="h-9">
-      <TabsTrigger
-        value="reader"
-        class="h-7 w-14"
-      >
-        Read
-      </TabsTrigger>
-      <TabsTrigger
-        value="editor"
-        class="h-7 w-14"
-        :disabled="notes.length === 0"
-      >
-        Edit
-      </TabsTrigger>
-    </TabsList>
-  </Tabs>
+  <ClientOnly>
+    <Tabs
+      :default-value="view"
+      :model-value="view"
+      @update:model-value="
+        (modelValue) =>
+          tabUpdate(modelValue as View)
+      "
+    >
+      <TabsList class="h-9">
+        <TabsTrigger
+          value="reader"
+          class="h-7 w-14"
+        >
+          Read
+        </TabsTrigger>
+        <TabsTrigger
+          value="editor"
+          class="h-7 w-14"
+          :disabled="notes.length === 0"
+        >
+          Edit
+        </TabsTrigger>
+      </TabsList>
+    </Tabs>
+  </ClientOnly>
 </template>

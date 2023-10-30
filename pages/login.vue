@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { setUser } = useUser()
+const route = useRoute()
 const signUp = async (e: CustomEvent) => {
   const hankoUserId = e.detail.userID
   const { data, error } = await useFetch(
@@ -11,7 +12,7 @@ const signUp = async (e: CustomEvent) => {
   )
   if (data.value) {
     setUser(data.value.user)
-    navigateTo('/')
+    navigateTo('/login/profile')
   }
   if (error.value) {
     /* eslint-disable no-console */
@@ -72,7 +73,10 @@ const signUp = async (e: CustomEvent) => {
         </div>
         <!-- <UserAuthForm /> -->
         <!-- eslint-disable vue/v-on-event-hyphenation -->
+
+        <NuxtPage :id="'profile'"></NuxtPage>
         <hanko-auth
+          v-if="!route.path.includes('/profile')"
           class="hanko-auth"
           @onAuthFlowCompleted="signUp"
         />

@@ -37,7 +37,6 @@ export default defineNuxtRouteMiddleware(
 
     if (hankoUser)
       useUser().setUserId(hankoUser.id)
-
     if (
       !hankoUser &&
       to.path !== redirects.login

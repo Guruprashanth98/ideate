@@ -34,6 +34,7 @@ import { GithubLogoIcon } from '@radix-icons/vue'
           </a>
         </div>
         <ColorModeButton></ColorModeButton>
+        <ProfileOptions />
       </div>
     </div>
   </header>

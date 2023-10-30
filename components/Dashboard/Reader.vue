@@ -8,7 +8,7 @@ const colorMode = useColorMode()
 <template>
   <div
     :class="{
-      'relative h-[90vh] bg-muted dark:bg-slate-900 overflow-y-scroll':
+      'relative h-[90vh] bg-muted dark:bg-muted overflow-y-scroll':
         view === 'editor',
       border: true,
       'border  border-transparent rounded-md': true,

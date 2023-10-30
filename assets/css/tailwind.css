@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --color: 222.2 84% 4.9%;
-
+    --background-color: 0 0% 100%;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
 
@@ -52,11 +52,13 @@
       rgb(233, 191, 248)
     );
     --brand-color: #fff;
-    --brand-contrast-color: #fff;
+    --brand-contrast-color: #18181b;
+    --brand-color-shade-1: #ccc;
   }
 
   .dark {
     --color: 210 40% 98%;
+    --background-color: 240 10% 3.9%;
     --brand-contrast-color: 222.2 84% 4.9%;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -85,7 +87,9 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-    --brand-color: #838282;
+    --brand-color: #b1aeae;
+    --brand-contrast-color: #18181b;
+    --brand-color-shade-1: #fff;
   }
 }
 

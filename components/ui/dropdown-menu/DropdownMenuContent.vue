@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import {
   DropdownMenuContent,
-  DropdownMenuPortal,
-  useForwardPropsEmits,
   type DropdownMenuContentEmits,
   type DropdownMenuContentProps,
+  DropdownMenuPortal,
+  useForwardPropsEmits,
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
-// eslint-disable vue/require-default-prop
+
 const props = withDefaults(
   defineProps<
-    DropdownMenuContentProps & {
-      class?: string
-    }
+    DropdownMenuContentProps & { class?: string }
   >(),
   {
     sideOffset: 4,

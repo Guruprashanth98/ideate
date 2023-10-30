@@ -21,7 +21,10 @@ const panelIconClick = () => {
         v-auto-animate
         class="flex min-h-[calc(100vh-57px)] justify-start pr-4 2xl:container"
       >
-        <Sidebar />
+        <ClientOnly>
+          <Sidebar />
+        </ClientOnly>
+
         <div
           class="w-full pl-7 pt-5 min-h-[inherit] relative"
         >
