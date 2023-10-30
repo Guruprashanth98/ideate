@@ -9,15 +9,10 @@ import { GithubLogoIcon } from '@radix-icons/vue'
       class="flex h-14 w-full items-center justify-between px-5 sm:container sm:px-10"
     >
       <div class="mr-4 flex">
-        <a
-          href="/"
-          class="mr-6 flex items-center space-x-2"
+        <span
+          class="m-0 text-lg font-bold text-foreground cursor-pointer"
+          >Ideate</span
         >
-          <span
-            class="m-0 text-lg font-bold text-foreground"
-            >Ideate</span
-          >
-        </a>
       </div>
       <div
         class="flex items-center justify-end space-x-4"
