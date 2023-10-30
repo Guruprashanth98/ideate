@@ -21,7 +21,7 @@ const panelIconClick = () => {
         v-auto-animate
         class="flex min-h-[calc(100vh-57px)] justify-start pr-4 2xl:container"
       >
-        <ClientOnly><Sidebar /></ClientOnly>
+        <Sidebar />
         <div
           class="w-full pl-7 pt-5 min-h-[inherit] relative"
         >
@@ -30,7 +30,7 @@ const panelIconClick = () => {
               :style="{
                 transform: `rotate(${angle}deg)`,
               }"
-              class="transition-transform w-[25px] h-[20px] cursor-pointer mr-1 absolute top-12 left-0 font-bold opacity-80"
+              class="transition-transform w-[15px] h-[15px] cursor-pointer mr-1 absolute top-12 left-0 font-semibold stroke-1 hover:stroke-2"
               @click="panelIconClick"
             />
           </ClientOnly>

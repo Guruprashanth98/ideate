@@ -21,5 +21,9 @@ export const useSelectedNote = () => {
     note.value = payload
   }
 
-  return { note, setNote }
+  const resetNote = () => {
+    note.value = initNote as Note
+  }
+
+  return { note, setNote, resetNote }
 }

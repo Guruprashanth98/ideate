@@ -1,18 +1,14 @@
-import {
-  H3Event,
-  createError,
-  sendError,
-} from 'h3'
+import { H3Event, createError } from 'h3'
 
 type CustomError = {
   statusCode: number
   message: string
   body?: any
 }
-
 export default function handleError(
   status: Number | String,
-  event: H3Event,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  event?: H3Event,
   err?: CustomError | any,
 ) {
   let error: any | undefined
@@ -21,13 +17,13 @@ export default function handleError(
       status: 401,
       message: 'Unauthorized',
     })
-    sendError(event, error, false)
+    throw error
   } else {
     error = createError({
       statusCode: err?.statusCode,
       statusMessage: err?.message,
-      data: err.body,
+      data: err?.body,
     })
-    sendError(event, error, false)
+    throw error
   }
 }

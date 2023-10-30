@@ -22,9 +22,9 @@ export const useNotes = () => {
     notes.value = payload
   }
 
-  const updateNote = (payload: Note) => {
+  const updateNote = (payload: Note, id: any) => {
     notes.value = notes.value.map((note) => {
-      if (note.id === payload.id) {
+      if (note.id === id) {
         // If the note ID matches the updated note ID, return the updated note
         return { ...note, ...payload }
       }

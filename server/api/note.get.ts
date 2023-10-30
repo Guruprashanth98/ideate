@@ -33,10 +33,7 @@ export default defineEventHandler(
         newObj.content = decryptedContent
         return newObj
       }) as Note[]
-      const notesData = {
-        notes: _notes,
-      }
-      return notesData.notes
+      return _notes
     }
   },
 )

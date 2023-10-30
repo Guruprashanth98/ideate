@@ -7,6 +7,7 @@ import {
 import { View } from '@/types/view'
 const { setSidebarExpanded } = useSidebarState()
 const { view, setView } = useView()
+const { notes } = useNotes()
 function tabUpdate(modelValue: View) {
   if (modelValue === 'editor') {
     setSidebarExpanded(false)
@@ -37,6 +38,7 @@ function tabUpdate(modelValue: View) {
       <TabsTrigger
         value="editor"
         class="h-7 w-14"
+        :disabled="notes.length === 0"
       >
         Edit
       </TabsTrigger>

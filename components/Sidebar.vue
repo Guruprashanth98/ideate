@@ -5,8 +5,13 @@ import { cn } from '@/lib/utils'
 import { Note, User } from '@/types/collections'
 
 const sidebar = ref()
+const tooltip = ref()
 const { sidebarExpanded } = useSidebarState()
-const { notes: notesRef, addNote } = useNotes()
+const {
+  notes: notesRef,
+  addNote,
+  updateNote,
+} = useNotes()
 const { user } = useUser()
 const { note: selectedNote, setNote } =
   useSelectedNote()
@@ -16,21 +21,28 @@ onMounted(() => {
   autoAnimate(sidebar.value)
 })
 async function addNewNote() {
+  const randomId = Math.random()
   const newNote = {
     title: 'Untitled',
     content: '',
+    id: randomId,
   }
+  addNote(newNote as Note)
+  setNote(newNote as Note)
+  setView('editor')
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { id, ..._note } = newNote
   const { insertedNote, insertError } =
     await useSaveNote(
       user.value as User,
-      newNote as Note,
+      _note as Note,
     )
   if (insertedNote) {
-    insertedNote.title = newNote.title
-    insertedNote.content = newNote.content
-    addNote(insertedNote as Note)
+    insertedNote.title = _note.title
+    insertedNote.content = _note.content
+    updateNote(insertedNote as Note, randomId)
     setNote(insertedNote as Note)
-    setView('editor')
   }
   /* eslint-disable no-console */
   if (insertError) console.log(insertError)
@@ -68,8 +80,28 @@ async function addNewNote() {
                 <PenSquare
                   class="h-5 w-5 cursor-pointer"
                   @click="addNewNote()"
+                  @mouseenter="tooltip = true"
+                  @mouseleave="tooltip = false"
                 />
+                <!-- <div
+                  v-if="tooltip"
+                  class="rounded-md border border-input px-3 py-1 text-sm absolute top-[-180%] right-[-90%] w-[90px] text-center bg-background text-foreground"
+                >
+                  Add Note
+                </div> -->
               </div>
+            </div>
+          </div>
+          <div
+            v-if="notesRef.length === 0"
+            class="w-full flex flex-wrap pr-10 relative"
+          >
+            <div class="min-w-full">
+              <p
+                class="text-center font-semibold opacity-50 mt-8"
+              >
+                Add Notes...
+              </p>
             </div>
           </div>
           <UiScrollArea class="w-full">

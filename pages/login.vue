@@ -1,23 +1,26 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: ['hanko-logged-out'],
-})
+const { setUser } = useUser()
+const signUp = async (e: CustomEvent) => {
+  const hankoUserId = e.detail.userID
+  const { data, error } = await useFetch(
+    '/api/user',
+    {
+      method: 'post',
+      body: { user_id: hankoUserId },
+    },
+  )
+  if (data.value) {
+    setUser(data.value.user)
+    navigateTo('/')
+  }
+  if (error.value) {
+    /* eslint-disable no-console */
+    console.log(error.value)
+  }
+}
 </script>
 
 <template>
-  <!-- <div class="md:hidden">
-    <VPImage
-      alt="Authentication"
-      width="1280"
-      height="1214"
-      class="block"
-      :image="{
-        dark: '/examples/authentication-dark.png',
-        light: '/examples/authentication-light.png',
-      }"
-    />
-  </div> -->
-
   <div
     class="container relative grid min-h-[100vh] flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0"
   >
@@ -25,38 +28,31 @@ definePageMeta({
       class="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex"
     >
       <div
-        class="absolute inset-0 bg-zinc-900"
-      ></div>
+        class="absolute inset-0 bg-[#101010] flex flex-col items-center justify-center"
+      >
+        <h1
+          class="absolute lg:top-[200px] xl:top-[140px] left-[50%] lg:translate-x-[-60%] xl:translate-x-[-50%] scroll-m-20 text-7xl font-extrabold tracking-tight xl:text-8xl"
+        >
+          Ideate.
+        </h1>
+        <img
+          src="../assets/ideate-landing.png"
+          class=""
+        />
+      </div>
       <div
         class="relative z-20 flex items-center text-lg font-medium"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          class="mr-2 h-6 w-6"
-        >
-          <path
-            d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"
-          />
-        </svg>
-        Acme Inc
+        <!-- <img
+          src="../public/ideate-logo-light-thin.png"
+          width="22px"
+          class="mr-2"
+        /> -->
       </div>
       <div class="relative z-20 mt-auto">
         <blockquote class="space-y-2">
-          <p class="text-lg">
-            &ldquo;This library has saved me
-            countless hours of work and helped me
-            deliver stunning designs to my clients
-            faster than ever before.&rdquo;
-          </p>
-          <footer class="text-sm">
-            Sofia Davis
-          </footer>
+          <p class="text-lg"></p>
+          <footer class="text-sm"></footer>
         </blockquote>
       </div>
     </div>
@@ -75,28 +71,12 @@ definePageMeta({
           </p> -->
         </div>
         <!-- <UserAuthForm /> -->
-
-        <hanko-auth />
+        <!-- eslint-disable vue/v-on-event-hyphenation -->
+        <hanko-auth
+          class="hanko-auth"
+          @onAuthFlowCompleted="signUp"
+        />
         <!-- <hanko-event  /> -->
-        <p
-          class="px-8 text-center text-sm text-muted-foreground"
-        >
-          By clicking continue, you agree to our
-          <a
-            href="/terms"
-            class="underline underline-offset-4 hover:text-primary"
-          >
-            Terms of Service
-          </a>
-          and
-          <a
-            href="/privacy"
-            class="underline underline-offset-4 hover:text-primary"
-          >
-            Privacy Policy
-          </a>
-          .
-        </p>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '~/assets/css/code-block.css',
     '~/assets/css/textarea.css',
     '~/assets/css/global.css',
+    '~/assets/css/hanko-auth.css',
   ],
   components: [
     {
@@ -52,7 +53,7 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/png',
-          href: '~/public/ideate-logo-light-thin.png',
+          href: '/ideate-logo-light-thin.png',
         },
       ],
     },

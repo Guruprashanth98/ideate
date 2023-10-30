@@ -1,8 +1,10 @@
-import { User } from '~/types/types'
+import { User } from '@/types/collections'
 
 export const useUser = () => {
   const initUser: User = {
-    id: null,
+    id: '',
+    created_at: '',
+    theme: null,
   }
 
   const user = useState<User>(
@@ -14,5 +16,9 @@ export const useUser = () => {
     user.value = payload
   }
 
-  return { user, setUser }
+  function setUserId(payload: string) {
+    user.value.id = payload
+  }
+
+  return { user, setUser, setUserId }
 }

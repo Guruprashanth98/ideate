@@ -7,7 +7,7 @@ import {
   type DropdownMenuContentProps,
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
-// Disable vue/require-default-prop
+// eslint-disable vue/require-default-prop
 const props = withDefaults(
   defineProps<
     DropdownMenuContentProps & {

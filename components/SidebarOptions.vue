@@ -20,7 +20,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 const open = ref(false)
-const { note, setNote } = useSelectedNote()
+const { note, setNote, resetNote } =
+  useSelectedNote()
 const { notes, deleteNote: deleteFromState } =
   useNotes()
 const pending = ref(false)
@@ -36,8 +37,13 @@ const deleteNote = async () => {
   /* eslint-disable no-console */
   if (error) console.log(error.value)
   if (data) {
-    deleteFromState(note.value)
-    if (notes.value) setNote(notes.value[0])
+    if (notes.value.length === 1) {
+      deleteFromState(note.value)
+      resetNote()
+    } else {
+      deleteFromState(note.value)
+      setNote(notes.value[0])
+    }
     open.value = false
     pending.value = false
   }

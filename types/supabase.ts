@@ -41,7 +41,7 @@ export interface Database {
           id: number
           title: string | null
           updated_at: string | null
-          user_id: number
+          user_id: string
         }
         Insert: {
           content?: string | null
@@ -49,7 +49,7 @@ export interface Database {
           id?: number
           title?: string | null
           updated_at?: string | null
-          user_id: number
+          user_id: string
         }
         Update: {
           content?: string | null
@@ -57,7 +57,7 @@ export interface Database {
           id?: number
           title?: string | null
           updated_at?: string | null
-          user_id?: number
+          user_id?: string
         }
         Relationships: [
           {
@@ -71,20 +71,17 @@ export interface Database {
       user: {
         Row: {
           created_at: string
-          email: string
-          id: number
+          id: string
           theme: string | null
         }
         Insert: {
           created_at?: string
-          email: string
-          id?: number
+          id: string
           theme?: string | null
         }
         Update: {
           created_at?: string
-          email?: string
-          id?: number
+          id?: string
           theme?: string | null
         }
         Relationships: []
@@ -100,7 +97,7 @@ export interface Database {
           id: number | null
           title: string | null
           updated_at: string | null
-          user_id: number | null
+          user_id: string | null
         }
         Insert: {
           content?: string | null
@@ -110,7 +107,7 @@ export interface Database {
           id?: number | null
           title?: string | null
           updated_at?: string | null
-          user_id?: number | null
+          user_id?: string | null
         }
         Update: {
           content?: string | null
@@ -120,7 +117,7 @@ export interface Database {
           id?: number | null
           title?: string | null
           updated_at?: string | null
-          user_id?: number | null
+          user_id?: string | null
         }
         Relationships: [
           {
@@ -153,6 +150,7 @@ export interface Database {
           id: string
           name: string
           owner: string | null
+          owner_id: string | null
           public: boolean | null
           updated_at: string | null
         }
@@ -164,6 +162,7 @@ export interface Database {
           id: string
           name: string
           owner?: string | null
+          owner_id?: string | null
           public?: boolean | null
           updated_at?: string | null
         }
@@ -175,17 +174,11 @@ export interface Database {
           id?: string
           name?: string
           owner?: string | null
+          owner_id?: string | null
           public?: boolean | null
           updated_at?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: 'buckets_owner_fkey'
-            columns: ['owner']
-            referencedRelation: 'users'
-            referencedColumns: ['id']
-          },
-        ]
+        Relationships: []
       }
       migrations: {
         Row: {
@@ -217,6 +210,7 @@ export interface Database {
           metadata: Json | null
           name: string | null
           owner: string | null
+          owner_id: string | null
           path_tokens: string[] | null
           updated_at: string | null
           version: string | null
@@ -229,6 +223,7 @@ export interface Database {
           metadata?: Json | null
           name?: string | null
           owner?: string | null
+          owner_id?: string | null
           path_tokens?: string[] | null
           updated_at?: string | null
           version?: string | null
@@ -241,6 +236,7 @@ export interface Database {
           metadata?: Json | null
           name?: string | null
           owner?: string | null
+          owner_id?: string | null
           path_tokens?: string[] | null
           updated_at?: string | null
           version?: string | null
@@ -250,12 +246,6 @@ export interface Database {
             foreignKeyName: 'objects_bucketId_fkey'
             columns: ['bucket_id']
             referencedRelation: 'buckets'
-            referencedColumns: ['id']
-          },
-          {
-            foreignKeyName: 'objects_owner_fkey'
-            columns: ['owner']
-            referencedRelation: 'users'
             referencedColumns: ['id']
           },
         ]
