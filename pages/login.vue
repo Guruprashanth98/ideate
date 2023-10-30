@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const { setUser } = useUser()
+const router = useRouter()
 const route = useRoute()
+
+// clearing redirect query param when redirected
+router.replace('')
+
 const signUp = async (e: CustomEvent) => {
   const hankoUserId = e.detail.userID
   const { data, error } = await useFetch(
@@ -32,7 +37,7 @@ const signUp = async (e: CustomEvent) => {
         class="absolute inset-0 bg-[#101010] flex flex-col items-center justify-center"
       >
         <h1
-          class="absolute lg:top-[200px] xl:top-[140px] left-[50%] lg:translate-x-[-60%] xl:translate-x-[-50%] scroll-m-20 text-7xl font-extrabold tracking-tight xl:text-8xl"
+          class="scroll-m-20 text-7xl font-extrabold tracking-tight xl:text-8xl mr-10"
         >
           Ideate.
         </h1>
