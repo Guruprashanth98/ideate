@@ -68,7 +68,7 @@ const saveNote = async () => {
   backupTitle.value.title = note.value
     .title as string
 
-  updateNote(note.value)
+  updateNote(note.value, note.value.id)
 
   const { id } = user.value
   const body = {

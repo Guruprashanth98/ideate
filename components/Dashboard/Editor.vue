@@ -17,7 +17,7 @@ function onResize({
     textArea.style.paddingTop = `${height + 60}px`
 }
 const saveNote = async () => {
-  updateStoreNotes(note.value)
+  updateStoreNotes(note.value, note.value.id)
   const { id } = user.value
   const body = {
     note: {
