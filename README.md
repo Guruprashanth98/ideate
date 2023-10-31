@@ -1,75 +1,16 @@
-# Nuxt 3 Minimal Starter
+# Ideate
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Markdown-enabled notes app secured with passkey authentication, powered by [shadcn/ui](https://ui.shadcn.com) styles and typography and featuring a code highlighter. A centralized place to store all notes for leetcode solutions or technical documentation when trying to solve system design problems.
 
-## Setup
+## Key Features
 
-Make sure to install the dependencies:
+- 🧑‍💻Create notes, todo list, and checklist for everyday tasks.
+- ✨Create beautifully highlighted code blocks.
+- 🔒All notes are encrypted on a database level.
+- 🖋️Edit view to show rendered markdown in real-time.
 
-```bash
-# npm
-npm install
+## Technical Details
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Authentication powered by Hanko - a passkey authenticator.
+- The application was developed using Nuxt (SSR)
+- Supabase - Database with Column Encryption to encrypt notes.
