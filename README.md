@@ -4,10 +4,10 @@ A Markdown-enabled notes app secured with passkey authentication, powered by [sh
 
 ## Key Features
 
-- 🧑‍💻Create notes, todo list, and checklist for everyday tasks.
-- ✨Create beautifully highlighted code blocks.
-- 🔒All notes are encrypted on a database level.
-- 🖋️Edit view to show rendered markdown in real-time.
+- 🧑‍💻 Create notes, todo list, and checklist for everyday tasks.
+- ✨ Create beautifully highlighted code blocks.
+- 🔒 All notes are encrypted on a database level.
+- 🖋️ Edit view to show rendered markdown in real-time.
 
 ## Technical Details
 
