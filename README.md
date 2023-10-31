@@ -14,3 +14,4 @@ A Markdown-enabled notes app secured with passkey authentication, powered by [sh
 - ✨ Create beautifully highlighted code blocks.
 - 🔒 All notes are encrypted on a database level.
 - 🖋️ Edit view to show rendered markdown in real-time.
+- 📱 Mobile Responsive
