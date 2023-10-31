@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import autoAnimate from '@formkit/auto-animate'
-import { PenSquare } from 'lucide-vue-next'
+import {
+  PanelLeftClose,
+  PenSquare,
+} from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 import { Note, User } from '@/types/collections'
 
 const sidebar = ref()
 const tooltip = ref()
 const { sidebarExpanded } = useSidebarState()
+const overlaySidebar = ref(false)
 const {
   notes: notesRef,
   addNote,
@@ -50,12 +54,20 @@ async function addNewNote() {
 </script>
 
 <template>
+  <!-- v-if="sidebarExpanded" -->
   <div
     v-if="sidebarExpanded"
     ref="sidebar"
     :class="
       cn(
-        'sticky hidden h-[calc(100vh-57px)] min-w-[240px] max-w-[350px] border-r pb-12 lg:block top-[57px]',
+        `absolute z-20 bg-background top-0 left-0 lg:sticky h-[calc(100vh-57px)] min-w-[240px] max-w-[350px] border-r pb-12 lg:top-[57px] transition-transform ${
+          !sidebarExpanded &&
+          'lg:translate-x-0 translate-x-[0]'
+        } ${
+          overlaySidebar
+            ? 'translate-x-0'
+            : 'translate-x-[-100%] lg:translate-x-0'
+        }`,
         $attrs.class ?? '',
       )
     "
@@ -134,6 +146,18 @@ async function addNewNote() {
           </UiScrollArea>
         </div>
       </div>
+
+      <PanelLeftClose
+        :style="{
+          transform: `rotate(${
+            overlaySidebar ? 0 : 180
+          }deg)`,
+        }"
+        :class="`block lg:hidden transition-transform w-[15px] h-[15px] cursor-pointer mr-1 absolute top-9 right-[-25px] font-semibold stroke-2 hover:stroke-2 z-30`"
+        @click="
+          () => (overlaySidebar = !overlaySidebar)
+        "
+      />
     </div>
   </div>
 </template>

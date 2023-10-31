@@ -13,7 +13,7 @@ const panelIconClick = () => {
     <main>
       <div
         v-auto-animate
-        class="flex min-h-[calc(100vh-57px)] justify-start pr-4 2xl:container"
+        class="flex min-h-[calc(100vh-57px)] justify-start pr-4 2xl:container relative"
       >
         <ClientOnly>
           <Sidebar />
@@ -29,7 +29,7 @@ const panelIconClick = () => {
                   sidebarExpanded ? 0 : 180
                 }deg)`,
               }"
-              class="transition-transform w-[15px] h-[15px] cursor-pointer mr-1 absolute top-12 left-0 font-semibold stroke-1 hover:stroke-2"
+              class="hidden lg:block left-[250px] transition-transform w-[15px] h-[15px] cursor-pointer mr-1 absolute top-12 lg:left-0 font-semibold stroke-1 hover:stroke-2 z-20"
               @click="panelIconClick"
             />
           </ClientOnly>

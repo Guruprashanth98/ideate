@@ -43,7 +43,7 @@ const signUp = async (e: CustomEvent) => {
         </h1>
         <img
           src="../assets/ideate-landing.png"
-          class=""
+          class="pointer-events-none"
         />
       </div>
       <div
